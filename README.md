@@ -64,6 +64,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-For any inquiries or feedback, please reach out via LinkedIn (https://www.linkedin.com/in/pasindu-abesinghe-a12408192/)).
-For any inquiries or feedback, please reach out via LinkedIn (https://www.linkedin.com/in/infas-imthisam)).
+For any inquiries or feedback, please reach out via LinkedIn:
+
+- [Pasindu Abesinghe](https://www.linkedin.com/in/pasindu-abesinghe-a12408192/)
+- [Infas Imthisam](https://www.linkedin.com/in/infas-imthisam)
+- [Navodh Perera](https://lk.linkedin.com/in/navodh-perera-b7bb1120a)
+- [Chiran Hansada](https://lk.linkedin.com/in/chiran-hansada-a53b2431b)
+
+
 
