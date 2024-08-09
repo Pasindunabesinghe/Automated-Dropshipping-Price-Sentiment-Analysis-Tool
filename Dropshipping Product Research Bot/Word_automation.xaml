@@ -1,0 +1,517 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Word_automation" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:moiw="clr-namespace:Microsoft.Office.Interop.Word;assembly=Microsoft.Office.Interop.Word" xmlns:p="http://schemas.uipath.com/workflow/activities/word" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uico="http://schemas.uipath.com/workflow/activities/contracts" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_productURL" Type="InArgument(x:String)" />
+    <x:Property Name="errorInfo" Type="InArgument(uico:ExceptionHandlerArgs)" />
+    <x:Property Name="result" Type="OutArgument(uico:ErrorAction)" />
+    <x:Property Name="out_ProductName" Type="OutArgument(x:String)" />
+    <x:Property Name="out_ProductURL" Type="OutArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>790,7693</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Word_automation_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.Word</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>UiPath.Word.Activities</x:String>
+      <x:String>UiPath.Web</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>Microsoft.Office.Interop.Word</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.MLServices.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Word</AssemblyReference>
+      <AssemblyReference>UiPath.Word.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Word.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Web</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>Microsoft.Office.Interop.Word</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Word_automation" sap:VirtualizedContainerService.HintSize="800,7628" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="productName_w" />
+      <Variable x:TypeArguments="x:String" Name="productPrice_w" />
+      <Variable x:TypeArguments="x:String" Name="productDescription_w" />
+      <Variable x:TypeArguments="x:String" Name="productImage_w" />
+      <Variable x:TypeArguments="x:String" Name="productURL" />
+      <Variable x:TypeArguments="moiw:_Document" Name="Document" />
+      <Variable x:TypeArguments="moiw:_Application" Name="WordApp" />
+      <Variable x:TypeArguments="x:String" Name="FilePath" />
+      <Variable x:TypeArguments="x:String" Name="variable1" />
+      <Variable x:TypeArguments="x:Boolean" Name="elementExists1" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign sap:VirtualizedContainerService.HintSize="738,114" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[productURL]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[in_productURL]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Amazon.com -WA" sap:VirtualizedContainerService.HintSize="738,3938" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="07ed7dd5-192b-42b0-8666-492828a936fe" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="704,3689" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If Condition="[productURL.Contains(&quot;amazon.com&quot;)]" sap:VirtualizedContainerService.HintSize="642,3599" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="500,1113" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NGetText DisplayName="Get Text 'BIC Xtra-Smooth'" sap:VirtualizedContainerService.HintSize="438,189" sap2010:WorkflowViewState.IdRef="NGetText_4" ScopeIdentifier="07ed7dd5-192b-42b0-8666-492828a936fe" TextString="[productName_w]" Version="V3">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable BrowserURL="https://www.amazon.com/BIC-Mechanical-Pencil-40-Count-MPCE40-BLK/dp/B08MQRQTKJ/ref=sr_1_6?crid=JAC4EBS13KT&amp;dib=eyJ2IjoiMSJ9.L3KlXbyU5SPBZnR5CwPCGVsH_m5Ntw6zkPQOnWTdI55_9XWYsMEikWS9N9OPoqVvBQmkk54sBuK4bXmM8aUvgO6ysQRTZsAxUBbJXLHv-wdNSm3qY1IkY3PZ6W-CXHxjK1ryLn_AqjtCexJcOp3BdB3pZCdRZpKnyNv-h39VynajHLywmyk2kdUiwkE9y1D1MhuS7nZjf4pXl-h-sHtE2h_Y5kwih0qlucIFSMYwfI77bsA1oIL3OjFDzQxRPxEqmUTIfPfvVIBXmc3moPBF72cSIcFADrmeiq-Drn84keo.0M2RnPQnZ23m4RqcqvDG5Lh8SXDuYSHVmgSNKiXomGM&amp;dib_tag=se&amp;keywords=pencil&amp;qid=1719513955&amp;sprefix=pencil%2Caps%2C623&amp;sr=8-6&amp;th=1" DesignTimeRectangle="499, 222, 570, 128" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl id='title' tag='H1' /&gt;" FuzzySelectorArgument="&lt;webctrl id='title' tag='H1' type='' class='a-size-large a-spacing-none' aaname='        ' /&gt;" Guid="0e1e973c-89d6-4d6b-8452-5c2a45199703" InformativeScreenshot="b092d0ff5bef52bc73488a6bf767b13c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='https://m.media-amazon.com/images/I/11EIQ5IGqaL._RC%7C01e5ncglxyL.css,01lF2n-pPaL.css,41SwWPpN5yL.css,31+Z83i6adL.css,01IWMurvs8L.css,01ToTiqCP7L.css,01qPl4hxayL.css,01ITNc8rK9L.css,413Vvv3GONL.css,11TIuySqr6L.css,01Rw4F+QU6L.css,11j54vTBQxL.css,01pbKJp5db*' title='Amazon.com : BIC Xtra-Smooth Mechanical Pencils with Erasers (MPCE40-BLK), Bright Edition Medium Point (0.7mm), 40-Count Pack, Bulk Mechanical Pencils for School, Barrel Colors May Vary : Office Products' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive" />
+                    </uix:NGetText.Target>
+                  </uix:NGetText>
+                  <uix:NGetText DisplayName="Get Text '$6.62 with'" sap:VirtualizedContainerService.HintSize="438,189" sap2010:WorkflowViewState.IdRef="NGetText_5" ScopeIdentifier="07ed7dd5-192b-42b0-8666-492828a936fe" TextString="[productPrice_w]" Version="V3">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable BrowserURL="https://www.amazon.com/Casio-F108WH-Illuminator-Collection-Digital/dp/B0053HBJBE/ref=sr_1_6?crid=3TKIKZPZLW89M&amp;dib=eyJ2IjoiMSJ9.QtmYg9uvPIA0gKXX6YbIndsnq9oGjif2_ZSHwK23Utuku_fEPUwnirfsHgmPX6sYgwmeSFsMwAN-8h9jeXXMmp2BTqBMePK67vCncVsjRspWBS7JP13JDbfv_VX2ChEgQuDREulwXP0hRLKj2ombY-2V0K346j0s7TbQ5p-rKuBDm2JwSRBmtmhW9r9pph-KXVWp-N5pi1WTNDsaNbymzd0BgZdM9B-m7eV1lBiEyW6Fw4Z2cDj9SQ-RWAHtgir58GEiFbNjBINq21me2NJKzM1FGCQQDgmIXRbqWLzOEvM.BF_nV0QvoNIgUaQqJJnDa3Px8RErzycr6nivbOG4WLg&amp;dib_tag=se&amp;keywords=watch&amp;qid=1720982115&amp;sprefix=watch%2Caps%2C492&amp;sr=8-6&amp;th=1" DesignTimeRectangle="651, 465, 56, 35" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span' idx='2' parentid='corePriceDisplay_desktop_feature_div' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' class='' parentid='corePriceDisplay_desktop_feature_div' tag='SPAN' aaname='' /&gt;" Guid="c5d069b9-9c08-4f33-a2f5-b44e4e9fa8d4" InformativeScreenshot="94c9050ec7b331705f58dc71133d8141.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='https://m.media-amazon.com/images/I/11EIQ5IGqaL._RC%7C01e5ncglxyL.css,01lF2n-pPaL.css,41SwWPpN5yL.css,31+Z83i6adL.css,01IWMurvs8L.css,01ToTiqCP7L.css,01qPl4hxayL.css,01ITNc8rK9L.css,413Vvv3GONL.css,11TIuySqr6L.css,01Rw4F+QU6L.css,11j54vTBQxL.css,01pbKJp5db*' title='Amazon.com: Casio Men&amp;apos;s F108WH Illuminator Collection Black Resin Strap Digital Watch : Clothing, Shoes &amp;amp; Jewelry' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="839, 370, 105, 18" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='askATFLink' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='askATFLink' tag='SPAN' type='' class='a-size-base' aaname=' Search this page ' check:innerText='Search this page' /&gt;" Guid="225978b5-3a87-4a78-af4f-a8176a0251bc" SearchSteps="FuzzySelector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NGetText.Target>
+                  </uix:NGetText>
+                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,417" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                    <TryCatch.Try>
+                      <uix:NGetText DisplayName="Get Text 'Description'" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NGetText_6" ScopeIdentifier="07ed7dd5-192b-42b0-8666-492828a936fe" TextString="[productDescription_w]" Version="V3">
+                        <uix:NGetText.Target>
+                          <uix:TargetAnchorable BrowserURL="https://www.amazon.com/Amazon-Basics-128GB-Ultra-Flash/dp/B0B6148YKN/ref=sr_1_1_ffob_sspa?crid=2DHDYAB4K70VA&amp;dib=eyJ2IjoiMSJ9.MOCbQmO7_tAxoUggoRicYpX62fPtLPHUk6tXAR2Z15FR0naw3OUEimDovRquW7aR4XOP2GkSkBC1Wujvma3IDbacBtsAvG08WkZI88I_aLJqLeTtx7-zRIsP1nx_CcwUyKrRC-8wIT20tuKbxTGHGSRE-Vr0XmYIdfelVoLjMsVsQIVLKBRAUUjFyVIRbVcqwNIvK9vCFzM2twVe1ZcjwNYYGeAqq-lvdFVlhqtwqxs.LPl8N8iug_LP-5Of9DT1-KTWKOnvR31FtkoG2qtg-6k&amp;dib_tag=se&amp;keywords=pen%2Bdrive&amp;qid=1721000207&amp;sprefix=pen%2Bdr%2Caps%2C544&amp;sr=8-1-spons&amp;sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&amp;th=1" DesignTimeRectangle="499, 277, 570, 371" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl id='feature-bullets' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl id='feature-bullets' tag='DIV' type='' class='a-section a-spacing-medium a-spacing-top-small' aaname='                                                                                                           ' /&gt;" Guid="c2a8a405-9d13-4539-9626-abca3ced3e0e" InformativeScreenshot="5d2111dd6ba17b3924cd9af7daf208df.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='https://m.media-amazon.com/images/I/11EIQ5IGqaL._RC%7C01e5ncglxyL.css,01lF2n-pPaL.css,41SwWPpN5yL.css,31+Z83i6adL.css,01IWMurvs8L.css,01ToTiqCP7L.css,01qPl4hxayL.css,01ITNc8rK9L.css,413Vvv3GONL.css,11TIuySqr6L.css,01Rw4F+QU6L.css,11j54vTBQxL.css,01pbKJp5db*' title='Amazon.com: Amazon Basics 128 GB Ultra Fast USB 3.1 Flash Drive, Black : Electronics' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
+                            <uix:TargetAnchorable.Anchors>
+                              <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                <uix:Target CVScreenId="84f47ebf-0eef-4c41-beae-bd8e70197ed9" CvTextArea="497, 296, 118, 15" CvTextArgument="About this item" CvType="Text" DesignTimeRectangle="499, 292, 570, 28" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='feature-bullets' tag='H1' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='feature-bullets' tag='H1' type='' class='a-size-base-plus a-text-bold' aaname=' About this item ' check:innerText='About this item' /&gt;" Guid="b38a6cec-edf3-4829-aa5f-3fad18447005" SearchSteps="FuzzySelector, CV" />
+                              </scg:List>
+                            </uix:TargetAnchorable.Anchors>
+                          </uix:TargetAnchorable>
+                        </uix:NGetText.Target>
+                      </uix:NGetText>
+                    </TryCatch.Try>
+                    <TryCatch.Catches>
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ActivityAction x:TypeArguments="s:Exception">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                          </ActivityAction.Argument>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,143" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Error" Message="[&quot;Description not found for product. Continuing with the next step.&quot;]" />
+                        </ActivityAction>
+                      </Catch>
+                    </TryCatch.Catches>
+                  </TryCatch>
+                  <uix:NGetAttributeGeneric x:TypeArguments="x:String" Attribute="src" DisplayName="Get Attribute 'DIV imgTagWrapperId'" sap:VirtualizedContainerService.HintSize="438,230" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_2" Result="[productImage_w]" ScopeIdentifier="07ed7dd5-192b-42b0-8666-492828a936fe" Version="V3">
+                    <uix:NGetAttributeGeneric.Target>
+                      <uix:TargetAnchorable BrowserURL="https://www.amazon.com/BIC-Mechanical-Pencil-40-Count-MPCE40-BLK/dp/B08MQRQTKJ/ref=sr_1_6?crid=JAC4EBS13KT&amp;dib=eyJ2IjoiMSJ9.L3KlXbyU5SPBZnR5CwPCGVsH_m5Ntw6zkPQOnWTdI55_9XWYsMEikWS9N9OPoqVvBQmkk54sBuK4bXmM8aUvgO6ysQRTZsAxUBbJXLHv-wdNSm3qY1IkY3PZ6W-CXHxjK1ryLn_AqjtCexJcOp3BdB3pZCdRZpKnyNv-h39VynajHLywmyk2kdUiwkE9y1D1MhuS7nZjf4pXl-h-sHtE2h_Y5kwih0qlucIFSMYwfI77bsA1oIL3OjFDzQxRPxEqmUTIfPfvVIBXmc3moPBF72cSIcFADrmeiq-Drn84keo.0M2RnPQnZ23m4RqcqvDG5Lh8SXDuYSHVmgSNKiXomGM&amp;dib_tag=se&amp;keywords=pencil&amp;qid=1719513955&amp;sprefix=pencil%2Caps%2C623&amp;sr=8-6&amp;th=1" DesignTimeRectangle="76, 185, 397, 409" DesignTimeScaleFactor="1" ElementType="Icon" FullSelectorArgument="&lt;webctrl id='landingImage' tag='IMG' /&gt;" FuzzySelectorArgument="&lt;webctrl id='landingImage' tag='IMG' type='' class='a-dynamic-image a-stretch-vertical' aaname='BIC Xtra-Smooth Mechanical Pencils with Erasers (MPCE40-BLK), Bright Edition Medium Point (0.7mm), 40-Count Pack, Bulk Mechanical Pencils for School, Barrel Colors May Vary' /&gt;" Guid="c2ea5115-291a-4759-afc1-84e798787aef" InformativeScreenshot="784c26608c1387e4826bc459682c7a89.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='https://m.media-amazon.com/images/I/11EIQ5IGqaL._RC%7C01e5ncglxyL.css,01lF2n-pPaL.css,41SwWPpN5yL.css,31+Z83i6adL.css,01IWMurvs8L.css,01ToTiqCP7L.css,01qPl4hxayL.css,01ITNc8rK9L.css,413Vvv3GONL.css,11TIuySqr6L.css,01Rw4F+QU6L.css,11j54vTBQxL.css,01pbKJp5db*' title='Amazon.com : BIC Xtra-Smooth Mechanical Pencils with Erasers (MPCE40-BLK), Bright Edition Medium Point (0.7mm), 40-Count Pack, Bulk Mechanical Pencils for School, Barrel Colors May Vary : Office Products' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="70, 189, 409, 409" FullSelectorArgument="&lt;webctrl id='imgTagWrapperId' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl id='imgTagWrapperId' tag='DIV' type='' class='imgTagWrapper' aaname=' &amp;#x9;             ' /&gt;" Guid="988f65c5-43da-439b-9c0c-c8486005676d" SearchSteps="FuzzySelector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NGetAttributeGeneric.Target>
+                  </uix:NGetAttributeGeneric>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="608,2323" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Apple Pencil (2nd Generation) White MU8F2AM/A - Best Buy" sap:VirtualizedContainerService.HintSize="546,2235" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="afa91cc8-be86-4837-9af8-21546b6fb00c" Version="V2">
+                    <uix:NApplicationCard.Body>
+                      <ActivityAction x:TypeArguments="x:Object">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="512,1995" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NGetText DisplayName="Get Text 'Model'" sap:VirtualizedContainerService.HintSize="450,189" sap2010:WorkflowViewState.IdRef="NGetText_7" ScopeIdentifier="afa91cc8-be86-4837-9af8-21546b6fb00c" TextString="[productName_w]" Version="V3">
+                            <uix:NGetText.Target>
+                              <uix:TargetAnchorable BrowserURL="https://www.bestbuy.com/site/apple-pencil-2nd-generation-white/6252354.p?skuId=6252354" DesignTimeRectangle="921, 348, 348, 58" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='H1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' class='heading-5 v-fw-regular' /&gt;" Guid="d61cb85f-4f99-4687-b90c-59a61a3158d1" InformativeScreenshot="b8a2b3c6ef5a719c7139d00a7938383a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Apple Pencil (2nd Generation) White MU8F2AM/A - Best Buy' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target CVScreenId="18204d1f-68a9-465b-b05f-abd0fd4f03f9" CvTextArea="919, 416, 37, 11" CvTextArgument="Model:" CvType="Text" DesignTimeRectangle="921, 415, 31, 14" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='shop-product-title-55358410' tag='STRONG' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='shop-product-title-55358410' tag='STRONG' type='' class='' aaname='Model' check:innerText='Model' /&gt;" Guid="1f85b1a5-86cd-49b2-948d-8a5cfc64b163" SearchSteps="FuzzySelector, CV" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NGetText.Target>
+                          </uix:NGetText>
+                          <uix:NGetText DisplayName="Get Text 'Or'" sap:VirtualizedContainerService.HintSize="450,189" sap2010:WorkflowViewState.IdRef="NGetText_8" ScopeIdentifier="afa91cc8-be86-4837-9af8-21546b6fb00c" TextString="[productPrice_w]" Version="V3">
+                            <uix:NGetText.Target>
+                              <uix:TargetAnchorable BrowserURL="https://www.amazon.com/s?k=pen+drive&amp;crid=36EB5QTSXYE2L&amp;sprefix=pen+drive%2Caps%2C935&amp;ref=nb_sb_noss_1" CVScreenId="79fc4179-a3f9-4c05-bdb4-c93d39f9ab3d" CvTextArea="919, 524, 95, 26" CvType="AnyWordGroup" DesignTimeRectangle="921, 519, 93, 37" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='pricing-price-2722218' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='pricing-price-2722218' tag='SPAN' type='' class='' /&gt;" Guid="94e30e7e-7e82-46ad-b025-c4f847a7d381" InformativeScreenshot="308a3df1aba890888f578257852406ee.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Nomatic Wallet Black 2832-WBLK - Best Buy' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target CVScreenId="79fc4179-a3f9-4c05-bdb4-c93d39f9ab3d" CvTextArea="920, 455, 36, 11" CvTextArgument="Model:" CvType="Text" DesignTimeRectangle="921, 454, 31, 14" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='shop-product-title-9943020' tag='STRONG' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='shop-product-title-9943020' tag='STRONG' type='' class='' aaname='Model' check:innerText='Model' /&gt;" Guid="a904c54b-2889-4eb0-9e16-1e07a222257a" SearchSteps="FuzzySelector, CV" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NGetText.Target>
+                          </uix:NGetText>
+                          <ui:UiElementExists DisplayName="First Description Location" Exists="[elementExists1]" sap:VirtualizedContainerService.HintSize="450,139" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+                            <ui:UiElementExists.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="99795aaf-496a-415e-9b82-c312887731c5" InformativeScreenshot="0d4564a4f5cb604beeb873dda9fb6bc5" Selector="&lt;webctrl tag='H2' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:UiElementExists.Target>
+                          </ui:UiElementExists>
+                          <If Condition="[elementExists1 = True]" sap:VirtualizedContainerService.HintSize="450,1156" sap2010:WorkflowViewState.IdRef="If_2">
+                            <If.Then>
+                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,268" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NGetText DisplayName="Get Text 'About this item'" sap:VirtualizedContainerService.HintSize="354,180" sap2010:WorkflowViewState.IdRef="NGetText_9" ScopeIdentifier="afa91cc8-be86-4837-9af8-21546b6fb00c" TextString="[productDescription_w]" Version="V3">
+                                  <uix:NGetText.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://www.bestbuy.com/site/apple-pencil-2nd-generation-white/6252354.p?skuId=6252354" DesignTimeRectangle="72, 437, 785, 102" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='shop-overview-accordion-33036052' tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='shop-overview-accordion-33036052' tag='P' type='' class='' /&gt;" Guid="a865640b-ea81-45fd-9b9b-88eaa7ca1859" InformativeScreenshot="0762cbfe02abdf8ca74d79996496cf36.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Apple Pencil (2nd Generation) White MU8F2AM/A - Best Buy' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                          <uix:Target CVScreenId="a79dbb26-bec6-412d-a2fe-9e28f9817856" CvTextArea="71, 407, 147, 18" CvTextArgument="About this item" CvType="Text" DesignTimeRectangle="72, 397, 785, 40" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='H2' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H2' type='' class='description-title heading-5 font-500 leading-8' aaname='About this item' check:innerText='About this item' /&gt;" Guid="7c4c85ce-99b8-45a7-b4eb-3f004155c1ef" SearchSteps="FuzzySelector, CV" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NGetText.Target>
+                                </uix:NGetText>
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,718" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Features'" sap:VirtualizedContainerService.HintSize="354,225" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="afa91cc8-be86-4837-9af8-21546b6fb00c" Version="V3">
+                                  <uix:NClick.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://www.bestbuy.com/site/apple-pencil-2nd-generation-white/6252354.p?skuId=6252354" CVScreenId="c1db1839-6882-4659-9a2f-f4da52247158" CvElementArea="824, 570, 20, 24" CvTextArea="72, 572, 84, 17" CvTextArgument="Features" CvType="ArrowButton" DesignTimeRectangle="72, 553, 785, 56" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;webctrl parentid='shop-overview-accordion-50926862' tag='BUTTON' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='shop-overview-accordion-50926862' tag='BUTTON' type='button' class='c-button-unstyled features-drawer-btn w-full flex justify-content-between align-items-center py-200' aaname='Features' check:innerText='Features' /&gt;" Guid="5b1a836d-3e48-4920-a5d8-db71712578e4" InformativeScreenshot="afcf24c5648cf2b6dc43419e60622f86.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Apple Pencil (2nd Generation) White MU8F2AM/A - Best Buy' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                          <uix:Target CVScreenId="c1db1839-6882-4659-9a2f-f4da52247158" CvTextArea="72, 572, 84, 17" CvTextArgument="Features" CvType="Text" DesignTimeRectangle="72, 569, 83, 24" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='shop-overview-accordion-50926862' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='shop-overview-accordion-50926862' tag='SPAN' type='' class='label font-500 not-italic' aaname='Features' check:innerText='Features' /&gt;" Guid="caf8e337-a747-49a6-9c27-fe30e48cda50" SearchSteps="FuzzySelector, CV" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NClick.Target>
+                                  <uix:NClick.VerifyOptions>
+                                    <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                      <uix:VerifyExecutionOptions.Retry>
+                                        <InArgument x:TypeArguments="x:Boolean" />
+                                      </uix:VerifyExecutionOptions.Retry>
+                                      <uix:VerifyExecutionOptions.Timeout>
+                                        <InArgument x:TypeArguments="x:Double" />
+                                      </uix:VerifyExecutionOptions.Timeout>
+                                    </uix:VerifyExecutionOptions>
+                                  </uix:NClick.VerifyOptions>
+                                </uix:NClick>
+                                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'See more...'" sap:VirtualizedContainerService.HintSize="354,225" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="afa91cc8-be86-4837-9af8-21546b6fb00c" Version="V3">
+                                  <uix:NClick.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://www.amazon.com/s?k=keyboard&amp;crid=3Q5QBQS8MHYJ&amp;sprefix=keyboard%2Caps%2C793&amp;ref=nb_sb_noss_1" CVScreenId="6c89dd9c-da75-4e51-b81c-cd7f79ba704a" CvTextArea="820, 444, 88, 14" CvTextArgument="See more..." CvType="Text" DesignTimeRectangle="821, 441, 87, 20" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;webctrl aaname='See more...' parentid='pdp-drawer-overlay-backdrop' tag='BUTTON' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='See more...' parentid='pdp-drawer-overlay-backdrop' tag='BUTTON' type='button' class='c-button-unstyled see-more-button btn-link bg-none p-none border-none text-style-body-lg-500' check:innerText='See more...' /&gt;" Guid="a1b19ab5-29a2-4c82-8821-20f4c3cd60ea" InformativeScreenshot="500683914b3968630dbc3b953f80a4cd.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazfit Band 7 Activity and Fitness Tracker 37.3mm Polycarbonate Black B2177OV1N - Best Buy' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                          <uix:Target CVScreenId="6c89dd9c-da75-4e51-b81c-cd7f79ba704a" CvTextArea="820, 165, 105, 22" CvTextArgument="Features" CvType="Text" DesignTimeRectangle="821, 161, 104, 36" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='H2' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H2' type='' class='v-fw-medium v-text-tech-black heading-4' aaname='Features' check:innerText='Features' /&gt;" Guid="b4b44652-7d16-4763-9237-6683bf2aaf47" SearchSteps="FuzzySelector, CV" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NClick.Target>
+                                  <uix:NClick.VerifyOptions>
+                                    <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                      <uix:VerifyExecutionOptions.Retry>
+                                        <InArgument x:TypeArguments="x:Boolean" />
+                                      </uix:VerifyExecutionOptions.Retry>
+                                      <uix:VerifyExecutionOptions.Timeout>
+                                        <InArgument x:TypeArguments="x:Double" />
+                                      </uix:VerifyExecutionOptions.Timeout>
+                                    </uix:VerifyExecutionOptions>
+                                  </uix:NClick.VerifyOptions>
+                                </uix:NClick>
+                                <uix:NGetText DisplayName="Get Text 'Features'" sap:VirtualizedContainerService.HintSize="354,180" sap2010:WorkflowViewState.IdRef="NGetText_10" ScopeIdentifier="afa91cc8-be86-4837-9af8-21546b6fb00c" TextString="[productDescription_w]" Version="V3">
+                                  <uix:NGetText.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://www.amazon.com/s?k=keyboard&amp;crid=3Q5QBQS8MHYJ&amp;sprefix=keyboard%2Caps%2C793&amp;ref=nb_sb_noss_1" DesignTimeRectangle="821, 364, 503, 179" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='pdp-drawer-overlay-backdrop' tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='pdp-drawer-overlay-backdrop' tag='P' type='' class='' /&gt;" Guid="6f1a10eb-da5a-4b5c-bd34-6cbea98fba9d" InformativeScreenshot="daea74af9afe83d03b84f3d05f6238a0.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazfit Band 7 Activity and Fitness Tracker 37.3mm Polycarbonate Black B2177OV1N - Best Buy' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                          <uix:Target CVScreenId="e87b052a-f88e-43ab-b001-478622504198" CvTextArea="820, 165, 105, 22" CvTextArgument="Features" CvType="Text" DesignTimeRectangle="821, 161, 104, 36" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='H2' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H2' type='' class='v-fw-medium v-text-tech-black heading-4' aaname='Features' check:innerText='Features' /&gt;" Guid="dc2ce915-6a8c-4408-a3ad-984a3d73775c" SearchSteps="FuzzySelector, CV" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NGetText.Target>
+                                </uix:NGetText>
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                          <uix:NGetAttributeGeneric x:TypeArguments="x:String" Attribute="src" DisplayName="Get Attribute 'BUTTON'" sap:VirtualizedContainerService.HintSize="450,232" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_3" Result="[productImage_w]" ScopeIdentifier="afa91cc8-be86-4837-9af8-21546b6fb00c" Version="V3">
+                            <uix:NGetAttributeGeneric.Target>
+                              <uix:TargetAnchorable BrowserURL="https://www.bestbuy.com/site/apple-pencil-2nd-generation-white/6252354.p?skuId=6252354" CVScreenId="9a991c6c-2a6d-406c-b8de-746fbe799336" CvTextArea="508, 157, 51, 18" CvTextArgument="today?" CvType="Text" DesignTimeRectangle="500, 417, 34, 640" DesignTimeScaleFactor="1" ElementType="Icon" FullSelectorArgument="&lt;webctrl parentid='shop-media-gallery-8882496' tag='IMG' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='shop-media-gallery-8882496' tag='IMG' type='' class='primary-image' aaname='Front. Apple - Pencil (2nd Generation) - White.' /&gt;" Guid="3d354fcd-35eb-4933-850e-7b6ed14a7f43" InformativeScreenshot="dec617eb3f85763ae56d126593393a48.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Apple Pencil (2nd Generation) White MU8F2AM/A - Best Buy' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target CVScreenId="bb096713-6766-4d86-84bf-629019714bbb" CvTextArea="511, 445, 12, 39" CvTextArgument="I" CvType="Text" DesignTimeRectangle="178, 417, 679, 640" ElementType="Button" FullSelectorArgument="&lt;webctrl parentid='shop-media-gallery-8882496' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='shop-media-gallery-8882496' tag='BUTTON' type='' class='primary-button is-selected' aaname='' /&gt;" Guid="4ad2649c-ac86-4e75-9451-927f6325f103" SearchSteps="FuzzySelector, CV" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NGetAttributeGeneric.Target>
+                          </uix:NGetAttributeGeneric>
+                        </Sequence>
+                      </ActivityAction>
+                    </uix:NApplicationCard.Body>
+                    <uix:NApplicationCard.TargetApp>
+                      <uix:TargetApp Area="-8, -8, 1382, 754" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="3ac7729cdddb02cabb4e28d53473b09e.jpg" Selector="&lt;html app='chrome.exe' title='Apple Pencil (2nd Generation) White MU8F2AM/A - Best Buy' /&gt;" Title="Apple Pencil (2nd Generation) White MU8F2AM/A - Best Buy" Url="[productURL]" />
+                    </uix:NApplicationCard.TargetApp>
+                  </uix:NApplicationCard>
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 1382, 754" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF5SURBVDhPlVM9S8NQFBW0+QOO2h+gU9vdSbuLNP0HprtDfoBIhYKgWFyFLLpUC10EjbvawcFC4qJDm4CDllQdHHq9JzdfbYLUA4e8d98959738t4cESnMA2afOSuQC40Cg31EkrBtm3Rdp4qqklqtkmEYwUoKDRi4MhZ0u12az+VoYYowzIALg6GMBVqt5gs2ymWyLCuaL+fzQcYEhikDx3H8LkzTpMt2299C2EUG0gbYf6FUikRJZiBtEFaECbo5bjb/ZxAm79Xr/nxb06KY53l+LIG0QaFYjAQ4yOQfQTdTCAy+HJkycIBLfOIQ4AtRhbe1zmajd5fGFt+J+x1hZNBZJfqwEPgbt1sifNwlOoM0NBjcEJ3z8I4XR3E3KXwOiF5aUqy1iEjiDF4vxAS8WpMqvUOiJ2bviKtvSlXkoSDWA4P4Kr89SCJMkMwcB1/qrPATupa8H/4bYHCVGxhNAC0+n8Yd9LliNvzHhOd8wvxGZEYglzWk/AJk0E1AkKBI3AAAAABJRU5ErkJggg==" InformativeScreenshot="9cc3cda5b1fb19e5c6591cf71b858aa1.jpg" Selector="&lt;html app='chrome.exe' htmlwindowname='https://m.media-amazon.com/images/I/11EIQ5IGqaL._RC%7C01e5ncglxyL.css,01lF2n-pPaL.css,41SwWPpN5yL.css,31+Z83i6adL.css,01IWMurvs8L.css,01ToTiqCP7L.css,01qPl4hxayL.css,01ITNc8rK9L.css,413Vvv3GONL.css,11TIuySqr6L.css,01Rw4F+QU6L.css,11j54vTBQxL.css,01pbKJp5db*' title='Amazon.com : BIC Xtra-Smooth Mechanical Pencils with Erasers (MPCE40-BLK), Bright Edition Medium Point (0.7mm), 40-Count Pack, Bulk Mechanical Pencils for School, Barrel Colors May Vary : Office Products' /&gt;" Title="Amazon.com : BIC Xtra-Smooth Mechanical Pencils with Erasers (MPCE40-BLK), Bright Edition Medium Point (0.7mm), 40-Count Pack, Bulk Mechanical Pencils for School, Barrel Colors May Vary : Office Products" Url="[productURL]" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+    <ui:HttpClient Body="{x:Null}" ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResponseAttachment="{x:Null}" ResponseHeaders="{x:Null}" Result="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" AuthenticationType="None" BodyFormat="application/xml" DisplayName="HTTP Request" EnableSSLVerification="True" EndPoint="[productImage_w]" sap:VirtualizedContainerService.HintSize="738,102" sap2010:WorkflowViewState.IdRef="HttpClient_1" Method="GET" ResourcePath="Downloads\downloaded_image.jpg" TimeoutMS="60000">
+      <ui:HttpClient.Attachments>
+        <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+      </ui:HttpClient.Attachments>
+      <ui:HttpClient.Cookies>
+        <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+      </ui:HttpClient.Cookies>
+      <ui:HttpClient.Headers>
+        <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+      </ui:HttpClient.Headers>
+      <ui:HttpClient.Parameters>
+        <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+      </ui:HttpClient.Parameters>
+      <ui:HttpClient.UrlSegments>
+        <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+      </ui:HttpClient.UrlSegments>
+    </ui:HttpClient>
+    <ui:CopyFile ContinueOnError="{x:Null}" Destination="Template" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="738,186" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="Data\Product_Details.docx" />
+    <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="738,165" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="chrome" />
+    <Assign sap:VirtualizedContainerService.HintSize="738,114" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[FilePath]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">Template\Product_Details.docx</InArgument>
+      </Assign.Value>
+    </Assign>
+    <p:WordApplicationScope DisplayName="Word Application Scope" FilePath="[FilePath]" sap:VirtualizedContainerService.HintSize="738,341" sap2010:WorkflowViewState.IdRef="WordApplicationScope_2">
+      <p:WordApplicationScope.Body>
+        <ActivityAction x:TypeArguments="ui:WordDocument">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:WordDocument" Name="WordDocumentScope" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,199" sap2010:WorkflowViewState.IdRef="Sequence_11">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Start Process" FileName="[FilePath]" sap:VirtualizedContainerService.HintSize="354,111" sap2010:WorkflowViewState.IdRef="StartProcess_3" />
+          </Sequence>
+        </ActivityAction>
+      </p:WordApplicationScope.Body>
+    </p:WordApplicationScope>
+    <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="738,122" sap2010:WorkflowViewState.IdRef="Delay_1" />
+    <p:WordApplicationScope DisplayName="Word Application Scope" FilePath="Template\Product_Details.docx" sap:VirtualizedContainerService.HintSize="738,2180" sap2010:WorkflowViewState.IdRef="WordApplicationScope_1">
+      <p:WordApplicationScope.Body>
+        <ActivityAction x:TypeArguments="ui:WordDocument">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:WordDocument" Name="WordDocumentScope" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="592,2038" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="530,122" sap2010:WorkflowViewState.IdRef="Delay_4" />
+            <p:WordSetBookmarkContent BookmarkName="name" BookmarkText="[productName_w]" DisplayName="Set Bookmark Content" sap:VirtualizedContainerService.HintSize="530,170" sap2010:WorkflowViewState.IdRef="WordSetBookmarkContent_3" />
+            <p:WordSetBookmarkContent BookmarkName="price" BookmarkText="[productPrice_w]" DisplayName="Set Bookmark Content" sap:VirtualizedContainerService.HintSize="530,170" sap2010:WorkflowViewState.IdRef="WordSetBookmarkContent_1" />
+            <If Condition="[String.IsNullOrEmpty(productDescription_w)]" sap:VirtualizedContainerService.HintSize="530,466" sap2010:WorkflowViewState.IdRef="If_3">
+              <If.Then>
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,193" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_4">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[productDescription_w]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">No description available</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,103" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </If.Else>
+            </If>
+            <p:WordSetBookmarkContent BookmarkName="description" BookmarkText="[productDescription_w]" DisplayName="Set Bookmark Content" sap:VirtualizedContainerService.HintSize="530,170" sap2010:WorkflowViewState.IdRef="WordSetBookmarkContent_2" />
+            <p:WordAddImage OccurrenceIndex="{x:Null}" Text="{x:Null}" Bookmark="image" DisplayName="Add Picture" sap:VirtualizedContainerService.HintSize="530,274" sap2010:WorkflowViewState.IdRef="WordAddImage_1" ImagePath="Downloads\downloaded_image.jpg" InsertRelativeTo="Bookmark" Position="Replace" />
+            <p:WordInsertHyperlink Found="{x:Null}" Address="[productURL]" DisplayName="Add Hyperlink to Document" sap:VirtualizedContainerService.HintSize="530,322" sap2010:WorkflowViewState.IdRef="WordInsertHyperlink_1" InsertRelativeTo="Text" Position="Replace" TextToDisplay="Click here" TextToSearchFor="Click here" />
+            <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="530,122" sap2010:WorkflowViewState.IdRef="Delay_2" />
+            <p:WordExportToPdf DisplayName="Save Document as PDF" FilePath="output\Product_Details.pdf" sap:VirtualizedContainerService.HintSize="530,134" sap2010:WorkflowViewState.IdRef="WordExportToPdf_1" />
+          </Sequence>
+        </ActivityAction>
+      </p:WordApplicationScope.Body>
+    </p:WordApplicationScope>
+    <Assign sap:VirtualizedContainerService.HintSize="738,114" sap2010:WorkflowViewState.IdRef="Assign_3">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_ProductName]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[productName_w]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="738,164" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Word Automation Successfully!&quot;]" />
+  </Sequence>
+</Activity>

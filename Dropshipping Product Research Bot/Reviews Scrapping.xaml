@@ -1,0 +1,289 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Reviews_Scrapping" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_productURL" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>694,3040</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Reviews_Scrapping_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.MLServices.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Word.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Word.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Reviews_Scrapping" sap:VirtualizedContainerService.HintSize="704,2975" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="productURL" />
+      <Variable x:TypeArguments="sd:DataTable" Name="amazonReviewsDataTable" />
+      <Variable x:TypeArguments="sd:DataTable" Name="bestbuyReviewsDataTable" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign DisplayName="Assign - Product Name" sap:VirtualizedContainerService.HintSize="642,114" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[productURL]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[in_productURL]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Amazon.com" sap:VirtualizedContainerService.HintSize="642,1820" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="92eca11b-e88c-4d52-afdc-92b0d3a3bdbd" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="608,1571" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If Condition="[productURL.Contains(&quot;amazon.com&quot;)]" sap:VirtualizedContainerService.HintSize="546,1481" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,493" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Ratings'" sap:VirtualizedContainerService.HintSize="354,225" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="92eca11b-e88c-4d52-afdc-92b0d3a3bdbd" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://www.amazon.com/Redragon-S101-Keyboard-Ergonomic-Programmable/dp/B00NLZUM36/ref=sr_1_3?_encoding=UTF8&amp;content-id=amzn1.sym.12129333-2117-4490-9c17-6d31baf0582a&amp;dib=eyJ2IjoiMSJ9.xPISJOYMxoc_9dHbx858fxwpXnhNZrtv8JW5ZP3BaCgSlrrRBWtjn8T4-CexKzAYezh0P1ulPovAG3-T88452wouNnePVMNSyoI3uHPSVzCUZQoTAf43Ud-Ur6f5gzOUOCPKOMlHb7LR8hQuw9FeRKzQNcN-cf-32nOJNY70QY6f1SL9_HhOC_vJvRJcwG5PbD7bL-kP-5_roKjK7UNi9HdjjDsr4W0CCf4q9I7HrIk.gC-p6s55SKK_pJQTRLNL8gkVRA1nUUl33tppOK8oBAI&amp;dib_tag=se&amp;keywords=gaming%2Bkeyboard&amp;pd_rd_r=89daea0d-cc4e-4292-8715-6dc063e17a3b&amp;pd_rd_w=CCAhw&amp;pd_rd_wg=7bYn9&amp;pf_rd_p=12129333-2117-4490-9c17-6d31baf0582a&amp;pf_rd_r=W66ZHZ0YGH0FDM0NE02Z&amp;qid=1719225781&amp;sr=8-3&amp;th=1" CVScreenId="b3f37424-2257-47ec-aef1-a4a3e1895e60" CvTextArea="842, 404, 94, 16" CvTextArgument="45,527 ratings" CvType="Text" DesignTimeRectangle="844, 402, 92, 18" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl id='acrCustomerReviewText' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='acrCustomerReviewText' tag='SPAN' type='' class='a-size-base' aaname='45,527 ratings' check:innerText='45,527 ratings' /&gt;" Guid="d6185044-ea46-4e28-892d-13b7b3c275ae" InformativeScreenshot="2483e316c828403c5126d73b70c3afb2.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='https://m.media-amazon.com/images/I/11EIQ5IGqaL._RC%7C01e5ncglxyL.css,01lF2n-pPaL.css,41SwWPpN5yL.css,31+Z83i6adL.css,01IWMurvs8L.css,01ToTiqCP7L.css,01qPl4hxayL.css,01ITNc8rK9L.css,413Vvv3GONL.css,11TIuySqr6L.css,01Rw4F+QU6L.css,11j54vTBQxL.css,01pbKJp5db*' title='Amazon.com: Redragon S101 Gaming Keyboard, M601 Mouse, RGB Backlit Gaming Keyboard, Programmable Backlit Gaming Mouse, Value Combo Set [New Version] : Video Games' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionOptions.Retry>
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
+                  </uix:NClick>
+                  <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[amazonReviewsDataTable]" DisplayName="Extract Amazon Reviews Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='reviews'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;column exact='1' name='Column0' attr='fulltext'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='4' /&gt;&lt;webctrl tag='span' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="354,180" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="Rows" MaximumResults="20" ScopeIdentifier="92eca11b-e88c-4d52-afdc-92b0d3a3bdbd" Version="V3">
+                    <uix:NExtractData.Target>
+                      <uix:TargetAnchorable BrowserURL="https://www.amazon.com/Zebra-Pen-Retractable-Ballpoint-12221/dp/B001BZ6ZN4/ref=sr_1_5?crid=379HL3JIOFKAW&amp;dib=eyJ2IjoiMSJ9.GxmX0yg7qlFk0c1uEVNAOKsgHO449klYghD5xw1CEbP8pSs7lVNKVxECy1mPg2s0QxVt0ix2yWWSbAXNWYLGZjdkt8gIFYWyf9uXZq4i-n4VN14ibCUl9N5DSOHYJujQmwo65UzOipqGODZfg_9uAw4C7VFEI0b-74FeRrzYsQ3yAk7puDph8S-iGUcxR9MKKC1WaYepNrsKmq9eXa0Rr2CEtRIUGLeR-96SOKQb9hFKTYzMxBUAhkaSSbDpUt78hgymQBwFliz_5D-Jc7c6-vhpbzWMVN4jsK8j5qNTSzA.6UmoxPeUd_8z-Rid-yeBCibAv3e_HQ4ma_nYFnc0_hQ&amp;dib_tag=se&amp;keywords=pen&amp;qid=1718976805&amp;sprefix=pe%2Caps%2C507&amp;sr=8-5&amp;th=1" DesignTimeRectangle="445, -348, 680, 2850" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl id='cm-cr-dp-review-list' tag='DIV' /&gt;" Guid="2c02fb1e-4948-4f23-a8c0-5aed3e5ac4a2" InformativeScreenshot="ae9cfbc9d529d2021b74551ff136aa03.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='https://m.media-amazon.com/images/I/11EIQ5IGqaL._RC%7C01e5ncglxyL.css,01lF2n-pPaL.css,41SwWPpN5yL.css,31+Z83i6adL.css,01IWMurvs8L.css,01ToTiqCP7L.css,01qPl4hxayL.css,01ITNc8rK9L.css,413Vvv3GONL.css,11TIuySqr6L.css,01Rw4F+QU6L.css,11j54vTBQxL.css,01pbKJp5db*' title='Amazon.com : Zebra Pen Z-Grip Retractable Ballpoint Pen, Medium Point, 1.0mm, Black Ink, 24 Pack (Packaging may vary) : Office Products' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                    </uix:NExtractData.Target>
+                  </uix:NExtractData>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="512,825" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome - Best Buy" sap:VirtualizedContainerService.HintSize="450,737" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="a3c581cc-dc6b-44ec-b6a8-bd05cad9bd74" Version="V2">
+                    <uix:NApplicationCard.Body>
+                      <ActivityAction x:TypeArguments="x:Object">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,497" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Customer Reviews'" sap:VirtualizedContainerService.HintSize="354,225" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a3c581cc-dc6b-44ec-b6a8-bd05cad9bd74" Version="V3">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="https://chatgpt.com/c/a84ef775-8594-4faf-9098-8be13d9d6310" CVScreenId="4c5a00e4-bfbb-410f-8f4d-a512406df28d" CvElementArea="70, 616, 253, 39" CvTextArea="102, 627, 189, 14" CvTextArgument="See All Customer Reviews" CvType="Button" DesignTimeRectangle="72, 618, 250, 35" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl aria-role='button' parentid='user-generated-content-ratings-and-reviews-66092699' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='button' parentid='user-generated-content-ratings-and-reviews-66092699' tag='A' type='' class='c-button c-button-secondary c-button-md c-button-block see-more-reviews mb-xs-300 mb-md-none mr-md-400' aaname='See All Customer Reviews' check:innerText='See All Customer Reviews' /&gt;" Guid="201cb357-a686-45d4-8533-07319828f471" InformativeScreenshot="0235c00610f1e0b7672fc80e177d4844.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Logitech Crayon Digital Pencil for All Apple iPads (2018 releases and later) Orange 914-000033 - Best Buy' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="72, 618, 785, 35" FullSelectorArgument="&lt;webctrl class='see-all-reviews-button-container' parentid='user-generated-content-ratings-and-reviews-66092699' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='see-all-reviews-button-container' parentid='user-generated-content-ratings-and-reviews-66092699' tag='DIV' type='' aaname='' check:innerText='See All Customer ReviewsWrite a Review' /&gt;" Guid="cd30aa69-5a92-4e20-a69d-d5b7efb27e93" SearchSteps="FuzzySelector" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NClick.Target>
+                            <uix:NClick.VerifyOptions>
+                              <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                <uix:VerifyExecutionOptions.Retry>
+                                  <InArgument x:TypeArguments="x:Boolean" />
+                                </uix:VerifyExecutionOptions.Retry>
+                                <uix:VerifyExecutionOptions.Timeout>
+                                  <InArgument x:TypeArguments="x:Double" />
+                                </uix:VerifyExecutionOptions.Timeout>
+                              </uix:VerifyExecutionOptions>
+                            </uix:NClick.VerifyOptions>
+                          </uix:NClick>
+                          <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[bestbuyReviewsDataTable]" DisplayName="Extract Best Buy Revies Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='reviews'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;column exact='1' name='Column0' attr='fulltext'&gt;&lt;webctrl tag='li' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='5' /&gt;&lt;webctrl tag='p' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="354,182" sap2010:WorkflowViewState.IdRef="NExtractData_2" LimitExtractionTo="Rows" MaximumResults="20" ScopeIdentifier="a3c581cc-dc6b-44ec-b6a8-bd05cad9bd74" Version="V3">
+                            <uix:NExtractData.Target>
+                              <uix:TargetAnchorable BrowserURL="https://www.bestbuy.com/site/reviews/samsung-s-pen-creator-edition-white/6562492?variant=A" DesignTimeRectangle="72, -928, 1221, 7052" DesignTimeScaleFactor="1" ElementType="List" FullSelectorArgument="&lt;webctrl class='reviews-list' parentid='reviews-accordion' tag='UL' /&gt;" Guid="d78978ef-5a9a-4f36-8a4f-6c1c6aa346ea" InformativeScreenshot="78df5ed596180e84b5e7c753d3e678c8.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Customer Reviews: Samsung S Pen Creator Edition White EJ-P5600SWEGUS - Best Buy' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                            </uix:NExtractData.Target>
+                          </uix:NExtractData>
+                        </Sequence>
+                      </ActivityAction>
+                    </uix:NApplicationCard.Body>
+                    <uix:NApplicationCard.TargetApp>
+                      <uix:TargetApp Area="-8, -8, 1382, 754" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAABFISURBVGhDxZkJWJXVusc5SWo54VBqiTLJPIOiIjPCRkYnBiFEUQaBSAZFBDaDBMooKDiDijghqDmmhokTHdOs29HTrbBSq1uJWp2jgd//vmt937fZeDme7rnde9fz/J//+77r23y/d6317b0BjT9iDNHspxU6ZkRUgaF2RZ2FfsvVaZYdnztZd37vbo/v3Sfhc2ebzj9PNe9osTVqLZioXeH9ilbQuIH9daSX//8MBh2rPTq5xdqwVQYVXS12k3NR37nZSaLY1VY4Y298PXj0yAX/p80w8HSd15T/7mR1/3s3O4GDEUwvZ+AMUgKVa3Iuxnb41sVG+M6VGiJVGk2o+19vJF1nLIHLR0OEUIGReM2FAYor/S3FHJLFEqgY2/JclBwzt0XahDFK6XZ/3GArc9be7DpfPb6CDKa3q0ClVZWBZHBV7iLXbXHP2ZoaJOey4Tnzdgezjj9sN4JHj1rw2XSrzp6VtBWBVKDqsJJkKGcbQR1SVXdioCwmaA7eo7t8zgZ/mWbR6TVyWJCE8a8Ntp0yrAwmryaDE50AmUuAHFJaSdFFUAZ2l0Hy2IoaI5ehna15LEqOyZ2skaI9+l87UqnjxyjVV7cHRi1mAOTyqvFYAuFzUqxeuzvdihohOOYEyPyOFDO/46gWi05NvPrfa4K9tcnb/Nxtl1wEFFeMxwxIdlaTgaQ6B5PrBMwgeyRCy/qGaZqlEDx6+AIJ7/mDPTw3p1rc54Bs2+mmfNtZribVKkpONxNjBkYuQ95xtBRXkjmDkv0ZcdBnYi5HUZ84mN4fN+DFf/5gtzuYdvRaRQbEYglI3XksA6pLtYrP5hLgNAtBBchiCfLrqSy2pFiUev71VHPhuNXE6xJm34M9MKpVZFID7w3YA8PVx6oyONlFQAYiOwER+NdqNQYo5myux0VZcH1F17ylPTpXwu09+o96WadkmWvPahIU/RD5gZKAemI2x10WAd1ROOLhtlo8vvZndN27C9XoegTh4VU8vV2K7usB6G63J9mh64qt0H3FTsyZyzHNdavmeKzSj6ctO7UG99OSsHuGTpxtvXN9EK7NnCTBqsFxQAlYWiX1Vf12roJD/94h/Mc71IifBGUjdF2xFrouWxOwBNrO69Qgq9nwWKyJeXb0mN670H/kyzq2jbNhR4pf7aUCY9vcG1oU22ou2tLOyjV4+uiRhCaOe50Cjn70BFtaH2Mz6dyt3/DZt93SrDS6H9GOrCUgawK14i7CyjnpMquJogZJlrz+47vmvXdhhPP4KOvdgYLN7iDY7p6F4/McJEDxnPY6i+ysUszO44OtNRKNON65/gRx9b9gkvIBJuc+5D4pVxLFgZU/0zW/SVeL4+k3tTIYui9bUUxO8VMGLsU0L85dMqemWGyJN0NGJUv4GhrGhW7XrRsCBQbPGolcqxBhJeivpjBocllTLXC/slhCYCv+FLF1Iri9BGzPYkm8zlxqil3LXiMP2gkOJcqCjpOFBEtOYs5jqnVdNuP1Mxt0Wjk8Oz5WuwIEK2rApiEI1iTm62Mdha+mmAm00hyYxbel/E6QlyAfGwbiX/GoF7BdTo9UNbV5JvYaVRP0kHdfUxCkmdB1iQGaU2xOwD1x9yXmZiRTVU1r0AtaGkPtRgda7wrEs3LcFoBPnS2E2w4MnDVhDua3HUyFn48eEm9MI2b7zwTaqSYR1rZXrbMnpzk5X0KvlYfw8AMJmgC5GKwZ5SYspwYoZ86a4LkpIn2GRWm8Nt+swmpnAEQFcmcNWO70F4qTnFTQHQ5m6JhihjuzvKRbAkfozDOQviU20bd65o5ceyL9NHquP5iighNlonJqhNyYmmGxMVfZm69WauhnTG213BEAix3+gnoTFjv8BFZvn2ENDi/pp/Ii6XaAb9lD2GR39oiAeuX/SGrXLVbbhadfr5egCfCikcDUzUS5VFObM8bBonGHNExKPTosd/ijL1nU+wlhhR5CxyQT4UtSx2RT/P3DD/jNbtHbojUBMDEQOX6+7vdR61Q9C8KDdg5I0KIuGXHorgsTWSNUM6R8IsGz3BBfNOl2aJjX+wqW9QRMsuDy4zGrs5jVjgTa8Aa+pAbkh/e9v/wGKwLiypJcAhRdvaZeJ2fXk+RrDsvH6PEdAjTkoN0XJ6q5qK4LBgI1w737ogF+OKHbqWFR5wfzOoIl/0fyqFLgS3tj4Qs7I0G8E1D73t9hSRCyZNhetT5iGV69XnP2b9JPpefgggEDJOlzSFldF/SE7gv6fJ7XWEyuYVY3UzAnyN7yhfl2EsVm22cKpqTK6Cn4ws5Y1QC7qQyhLovn5M/OWa+8A48V55Ccuw5r1m1AQupKLImJFCLmOQiBzoPQum0qfjlHz8QFPVEX9Vkj6GrTpebIKdYwWe/dabrdRzBjwCQWMzfbNpPnrG66zUeYXKvADUdT+pJ2hzdw6NpjWKy6D/NVP3FncNzV42dcvtZqRQdCVu7F3LBgLE1Nw6K4OGQWlCDurRUIiXgDzq6O6KfZD7ODw1BWthptB6Lx6/v0QdamQ7ugS+CkNh1qShcaBmtdOxgkkwmBqsDJZbE6U0ayI/52tZ03cJcePAYkSoTrW73nHJLfQ0JyKtLS3kLQ7JlYkZOHRbHxSM95G0npWXhj4SLM8PGE5ov9qJkoVFaXY/u2TTh5dD8+bXbi4F1t4wWmz/e/3qExLsG2xXTrTFplEdZ0q0+v2GSrQmDidbruatNm3gAbUVsfwoygzAhS9Oco8weE5B6FX4APEhPjEBcfjdil0chQ5iEsIhzxqRlIy8pHzNJE+AX6ov/A/ggOX4DS8hI07NyKQy1NyM9TCrvX2OPJ+fHoOq8tnKka3aoxJtS0QoQTYXkzUs5kvMWbGmCuEJhCKwIlfKDlwycwzfwJpgTIRTGD5bVn5Jp+EiWlhfDwdMUMLw9ELZyP5LQEpOVkI3h+CGJoV/JL19MxSsac4FkYNGQQguaGoKSsBHsa6nDsyEHWAHx9Z+LEBvpi16aNssRhlRrDpr4exSA56BYFmHgzW2SJNVFi3n7vhtQCsGDLI5gQoCwGa5L5owqc1RwzPkB8SjTS05Mw2cEejqSwebMQn7QUS5ctx+KYWETGxCN3bSVSlmcjLDwUQ4YORgA1UFpRjn17d6H1zCkUF72NWbOC4O/vi5vNdgiYPjBQo99LmlocbrMCRpu9eBPGPKamyNXFauwajz0L8OjJL7yBO/efwnNtJ4wJmoEbrxS9J/4JEctrkZmdjtTUZBgbGULhbYclhfMwaORYTHH0QG6OEhX0LrRAqUB4/nRELA3D4MFD4TVzFirWV2P/vp1498RhFOTnYc7c2VD4+GJryWxBZ3Q/8Zd87dRJrcabvSVQbxht8iJ4yjfJNbHOc6lWeKmWN8AGayJyy0MO/KzM6R0nctF8rMhYhvTlKRg+ZCTcZtvAf4UCzuYuaF5XjBsX2pCXkwlFqjPcVk2Hf/5cuKdPxowIdygLirC3sQ6nTzSjsHA1QueHYaafP1JSEoXhw4eN5Q1oeYxPNiIwWYYbZwg9uVevOp/bKNaqr+6SWhBH89XHcF9zH4YEbkRiPi2hmR7SeVhG5z16URSGvvISPJPHwys6FElr87G9rgY3v+vAxfY2gnaAX4E3QqrC4JlmB/MpJngzPYV2oAHnzhxDydo1eCMyAr7UQNzSJfBRuMfxBl4YqKllUOHWOZHgmDigBMncUBKbY65eYzvx6LF4nORx8243Tn/6BFWnf0VCOr2zxC3GyuwVWLo4FjZzLBGS5ouI4Cg4J/kgIu4NzC0OprNeiJQVKxCbmYCE7CUwcdSGvvFEpGYkobFhK95/7yQq6B0penE0/AMDqYFY5CvTTvIG2Bjhp6eUoQxrCbbWUzCsnUExiWoGUm5QQy7lE6V5l4Zw4eCtUxJ+7xEeFYm4hHisKSpCzmolfJYvgceiuYimo5A4LxK1GRn45OxpPPjsBmLiFyE9czWiFi2Gts4E6JsYIDsnDQf278TlttOoripDTMwS+vwIQvSShdhcU/RAwhd3Qa/U9b4MNrGGxJzHnr1yBq3K2ZyUu+6KQOGFWly5+xG+efQdb8DRfwb8ZwciNicV4W+nISImEtMmWcLfzxfLaEf+7fRpfHq+CWFZClgk6CFyRSg1kogx48dirLYOCt7OQ1NTA86ePICa6jLEx8fCz98P4RHzsamm9LGEL47hvnpKWmEOo1/jIajAucsSc/0NbJ7viCpmdYMNoliNuY2Pk2Dv54K5K+dhdXEeVhcWwJWOgW94JNynTcKhrevQ1n4AL3hrwDBOB75Z7pg8ZwpetNLE61bayMlXYl/jFrx/9ii2b92IpUvj+WdBaGgwKivX9OyAPLQzHK7LELJkeIMNHpLU55/N1WseUMT7wnnxNMzJDEfijs0IPbgH2qnpsIhbCOVbYWipLkTDqRZUnGmEb24oJi92wRDXoXh5+ksYaj8YOQU5OHG8Ge1X2rB713bagTgEBPjTJ7ovsrOW35Kwe4bmiIE6uiXOnfrrPSCLgai73np3QXQ3gcUMlrkoNz4nS1HsLQQXzUNE837Mp/fyOUd2w1aphF5mOnLWZOFt5QqUvH8M7Q++xaWf7qF4SzkGTB2GgU5D0d+yPzWwihpowsW2M2jatxvJbyZhFj0DM+kIhoXNPSRh9x5DJo+J0q12E5hEEHdJFFeTM1GuR95zjTjHclWd3LncB+E1WfDdsweK+o2IP9yIzR9eQNz5UwjbtAEFZ46gor0V157cx+ZjTbjz+Fd4JXlDY1J/jJg0GjnKlWjaX4+z7x6jo7QTbyYl8E9j1oCNjaX4NtrXGOGjl8tA+pJulasKUlWvcvsv1zGZVbkjoGoV3Op3IKy4EEX5OTj5zV+xreMTZJ09hsKPLuLQw6/R+EEbGsrL8ODuPdQer8cLTi/CxMMcpSVrcezoQZxrfZd2oAFpqcugUHjB08sTQ4YMfv6f27V8dJQcjKRD0LqSMzE4Hq+jmCDZXK95KWc+vyEHnpvXIzpqPooTYtF04wriTzQhsrwYyotnUfnpNSTUb0JhShJufXwdh2+eh978iZjm44hNGzfgyKH99F3oBJrpCBWuLkBISDCsrKz6Pj7PjpfNRwWNL57eSaAqSN11bpiwzoXgXQQWyzVduobVmVjOXsNiixpfwSc3C8HeTvBcHA7/7RtR8OE5bLhxAd4bK7Dl5odY/9XHcKNP54zEZOy7/C5GOY2Ah687qqpKsHfPdpw+eQRHWw6guroKCxdGPR4wYMA4CfGfD83hA3XG5Th0cMBKAq+UnHIOSfGESmeSOKeSat5ZWFDujaKMWEzPXw4jenATjjei5uP34VFN3zAbyrDyfDNe85kBZxcP1LTsxwiLl7EwMRKbajegcddWHGnejY3rK5CXlwcDA/3f9++mZ8cwxQSlDDaeoHQqXTjo+AoWiy7HEyrEOSbHDVNw++RwHCmzhHlyLMYlRsNvWzlS6MMppqUeS07VYXpZNrQDFNhTlIPD7edhPFUf2bnL6QFuRMvBRpyi56CmuhKenp59/4Pj9w62GyPDjOoYKINUl3aZE29Au8KJz1HM61v20a+BZwcIXWcH4tI+M2jHzIHXpgrkXjyNvMunUfzJe3DJXwZdF0fUpCTiBD0f1iG2KF2zms7/Phxu3oemxrqHttbWfhLG/3ywRgZPGhM1Ns3uOgPnwOXOKok1Z0xbP4XB9+jMANw+MlzI35uE6Hf2I46+Jgcf3I4xi0Lh4DUDKyODcXhdIRZnpWBdeRH276lH9qrl77wyaqS2dOs/frBm2MOuFaRX8Uq8RetrWZM7WBPjSqcLew+8jh8Oa3Z+tluzoylPs6U0vl/FG95/WqA16E9ar5oYOVuFzFX6FuUeHx8dcUtnsv3PcxTuP2cujf6rwt/3uL+fT66JsZGzdJs+hobGfwKjTEY06rEP9gAAAABJRU5ErkJggg==" InformativeScreenshot="d641e2ac15e67da03961b15e2209ffbe.jpg" Selector="&lt;html app='chrome.exe' title='Customer Reviews: Samsung S Pen Creator Edition White EJ-P5600SWEGUS - Best Buy' /&gt;" Title="Best Buy | Official Online Store | Shop Now &amp; Save" Url="[productURL]" />
+                    </uix:NApplicationCard.TargetApp>
+                  </uix:NApplicationCard>
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 1382, 754" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF5SURBVDhPlVM9S8NQFBW0+QOO2h+gU9vdSbuLNP0HprtDfoBIhYKgWFyFLLpUC10EjbvawcFC4qJDm4CDllQdHHq9JzdfbYLUA4e8d98959738t4cESnMA2afOSuQC40Cg31EkrBtm3Rdp4qqklqtkmEYwUoKDRi4MhZ0u12az+VoYYowzIALg6GMBVqt5gs2ymWyLCuaL+fzQcYEhikDx3H8LkzTpMt2299C2EUG0gbYf6FUikRJZiBtEFaECbo5bjb/ZxAm79Xr/nxb06KY53l+LIG0QaFYjAQ4yOQfQTdTCAy+HJkycIBLfOIQ4AtRhbe1zmajd5fGFt+J+x1hZNBZJfqwEPgbt1sifNwlOoM0NBjcEJ3z8I4XR3E3KXwOiF5aUqy1iEjiDF4vxAS8WpMqvUOiJ2bviKtvSlXkoSDWA4P4Kr89SCJMkMwcB1/qrPATupa8H/4bYHCVGxhNAC0+n8Yd9LliNvzHhOd8wvxGZEYglzWk/AJk0E1AkKBI3AAAAABJRU5ErkJggg==" InformativeScreenshot="b69ccce9f585a8256eae1555bf3863c0.jpg" Selector="&lt;html app='chrome.exe' htmlwindowname='https://m.media-amazon.com/images/I/11EIQ5IGqaL._RC%7C01e5ncglxyL.css,01lF2n-pPaL.css,41SwWPpN5yL.css,31+Z83i6adL.css,01IWMurvs8L.css,01ToTiqCP7L.css,01qPl4hxayL.css,01ITNc8rK9L.css,413Vvv3GONL.css,11TIuySqr6L.css,01Rw4F+QU6L.css,11j54vTBQxL.css,01pbKJp5db*' title='Amazon.com : Zebra Pen Z-Grip Retractable Ballpoint Pen, Medium Point, 1.0mm, Black Ink, 24 Pack (Packaging may vary) : Office Products' /&gt;" Title="New Tab" Url="[productURL]" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="642,789" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" WorkbookPath="Data\Customer Reviews.xlsx">
+      <ui:ExcelApplicationScope.Body>
+        <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="512,647" sap2010:WorkflowViewState.IdRef="Sequence_8">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If Condition="[productURL.Contains(&quot;amazon.com&quot;)]" sap:VirtualizedContainerService.HintSize="450,559" sap2010:WorkflowViewState.IdRef="If_2">
+              <If.Then>
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,199" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:ExcelWriteRange AddHeaders="True" DataTable="[amazonReviewsDataTable]" DisplayName="Write Range - Product Reviews" sap:VirtualizedContainerService.HintSize="354,111" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_1" SheetName="Product Reviews" StartingCell="A1" />
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,199" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:ExcelWriteRange AddHeaders="True" DataTable="[bestbuyReviewsDataTable]" DisplayName="Write Range - Product Reviews" sap:VirtualizedContainerService.HintSize="354,111" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_2" SheetName="Product Reviews" StartingCell="A1" />
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </ui:ExcelApplicationScope.Body>
+    </ui:ExcelApplicationScope>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="642,164" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Product Reviews Scrapping Successfully!&quot;]" />
+  </Sequence>
+</Activity>

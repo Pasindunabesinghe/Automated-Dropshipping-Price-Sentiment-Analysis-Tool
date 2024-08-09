@@ -1,0 +1,211 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="bestbuy_scrap" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_bestbuyTable" Type="OutArgument(sd:DataTable)" />
+    <x:Property Name="in_productName" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>679,1724</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>bestbuy_scrap_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Word.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.MLServices.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>UiPath.Word.Activities.Design</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="bestbuy_scrap" sap:VirtualizedContainerService.HintSize="512,1659" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="bestbuyDatatable" />
+      <Variable x:TypeArguments="x:String" Name="productName" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="IfOpenedByAppBrowser" DisplayName="Use Browser Bestbuy" sap:VirtualizedContainerService.HintSize="450,1293" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="5a4562f0-0ade-485a-b9bb-e5682b8ecfb0" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,1044" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:SetFocus DelayBefore="{x:Null}" DelayMS="{x:Null}" DisplayName="Set Focus 'Search bar'" sap:VirtualizedContainerService.HintSize="354,139" sap2010:WorkflowViewState.IdRef="SetFocus_1">
+              <ui:SetFocus.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0ed746ca-98bf-4ca1-bc44-30a744bea5b9" InformativeScreenshot="33b756ccda7f94ead61b0a222c1b0655" Selector="&lt;webctrl id='gh-search-input' tag='INPUT' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SetFocus.Target>
+            </ui:SetFocus>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Product Name'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,286" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="5a4562f0-0ade-485a-b9bb-e5682b8ecfb0" Text="[in_productName]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.bestbuy.com/" CVScreenId="acef2f2b-a4c2-46ef-a397-86ade4aba19a" CvElementArea="294, 195, 506, 44" CvType="InputBox" DesignTimeRectangle="298, 197, 464, 40" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='gh-search-input' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='gh-search-input' tag='INPUT' type='text' class='search-input' placeholder='What can we help you find today?' aaname='' /&gt;" Guid="a1969546-6cee-4fa3-b61a-33afa8a20c18" InformativeScreenshot="81d9dad38ae8f6b6ca84cadd1a8b1f03.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Best Buy | Official Online Store | Shop Now &amp;amp; Save' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive" />
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.VerifyOptions>
+                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                </uix:VerifyExecutionTypeIntoOptions>
+              </uix:NTypeInto.VerifyOptions>
+            </uix:NTypeInto>
+            <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="354,122" sap2010:WorkflowViewState.IdRef="Delay_1" />
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Search'" sap:VirtualizedContainerService.HintSize="354,225" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5a4562f0-0ade-485a-b9bb-e5682b8ecfb0" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.bestbuy.com/site/searchpage.jsp?st=pen&amp;_dyncharset=UTF-8&amp;_dynSessConf=&amp;id=pcat17071&amp;type=page&amp;sc=Global&amp;cp=1&amp;nrp=&amp;sp=&amp;qp=&amp;list=n&amp;af=true&amp;iht=y&amp;usc=All+Categories&amp;ks=960&amp;keys=keys" DesignTimeRectangle="767, 205, 24, 24" DesignTimeScaleFactor="1" ElementType="Icon" FullSelectorArgument="&lt;webctrl parentid='shop-header-80627720' parentname='frmSearch' tag='svg' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='shop-header-80627720' parentname='frmSearch' tag='svg' type='' class='w-300 h-300 inline-align-middle' aaname='' /&gt;" Guid="a02534af-ebfd-4d9f-8180-1436324624f6" InformativeScreenshot="57b930ce937a342e7039b747183de7f9.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='pen - Best Buy' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.PointOffset>
+                    <uix:PointOffset X="-1" Y="2" />
+                  </uix:TargetAnchorable.PointOffset>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[bestbuyDatatable]" DisplayName="Extract Bestbuy Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='Name'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;true&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column1' Name='URL'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;true&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;true&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column2' Name='price'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='li' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/row&gt;&lt;column exact='1' name='Column0' attr='fulltext' name2='Column1' attr2='href'&gt;&lt;webctrl tag='li' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='h4' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column2' attr='fulltext'&gt;&lt;webctrl tag='li' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='3' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='span' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="354,182" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="Rows" MaximumResults="20" ScopeIdentifier="5a4562f0-0ade-485a-b9bb-e5682b8ecfb0" Version="V3">
+              <uix:NExtractData.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.bestbuy.com/site/searchpage.jsp?st=spe&amp;_dyncharset=UTF-8&amp;_dynSessConf=&amp;id=pcat17071&amp;type=page&amp;sc=Global&amp;cp=1&amp;nrp=&amp;sp=&amp;qp=&amp;list=n&amp;af=true&amp;iht=y&amp;usc=All+Categories&amp;ks=960&amp;keys=keys" DesignTimeRectangle="381, 517, 912, 5048" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl tag='OL' /&gt;" Guid="69f2e8cc-3afe-43b9-af4f-deeaea88adb7" InformativeScreenshot="c84283dc8c8b563872f1c38068de3230.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='spe - Best Buy' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+              </uix:NExtractData.Target>
+            </uix:NExtractData>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 1382, 754" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAABFISURBVGhDxZkJWJXVusc5SWo54VBqiTLJPIOiIjPCRkYnBiFEUQaBSAZFBDaDBMooKDiDijghqDmmhokTHdOs29HTrbBSq1uJWp2jgd//vmt937fZeDme7rnde9fz/J//+77r23y/d6317b0BjT9iDNHspxU6ZkRUgaF2RZ2FfsvVaZYdnztZd37vbo/v3Sfhc2ebzj9PNe9osTVqLZioXeH9ilbQuIH9daSX//8MBh2rPTq5xdqwVQYVXS12k3NR37nZSaLY1VY4Y298PXj0yAX/p80w8HSd15T/7mR1/3s3O4GDEUwvZ+AMUgKVa3Iuxnb41sVG+M6VGiJVGk2o+19vJF1nLIHLR0OEUIGReM2FAYor/S3FHJLFEqgY2/JclBwzt0XahDFK6XZ/3GArc9be7DpfPb6CDKa3q0ClVZWBZHBV7iLXbXHP2ZoaJOey4Tnzdgezjj9sN4JHj1rw2XSrzp6VtBWBVKDqsJJkKGcbQR1SVXdioCwmaA7eo7t8zgZ/mWbR6TVyWJCE8a8Ntp0yrAwmryaDE50AmUuAHFJaSdFFUAZ2l0Hy2IoaI5ehna15LEqOyZ2skaI9+l87UqnjxyjVV7cHRi1mAOTyqvFYAuFzUqxeuzvdihohOOYEyPyOFDO/46gWi05NvPrfa4K9tcnb/Nxtl1wEFFeMxwxIdlaTgaQ6B5PrBMwgeyRCy/qGaZqlEDx6+AIJ7/mDPTw3p1rc54Bs2+mmfNtZribVKkpONxNjBkYuQ95xtBRXkjmDkv0ZcdBnYi5HUZ84mN4fN+DFf/5gtzuYdvRaRQbEYglI3XksA6pLtYrP5hLgNAtBBchiCfLrqSy2pFiUev71VHPhuNXE6xJm34M9MKpVZFID7w3YA8PVx6oyONlFQAYiOwER+NdqNQYo5myux0VZcH1F17ylPTpXwu09+o96WadkmWvPahIU/RD5gZKAemI2x10WAd1ROOLhtlo8vvZndN27C9XoegTh4VU8vV2K7usB6G63J9mh64qt0H3FTsyZyzHNdavmeKzSj6ctO7UG99OSsHuGTpxtvXN9EK7NnCTBqsFxQAlYWiX1Vf12roJD/94h/Mc71IifBGUjdF2xFrouWxOwBNrO69Qgq9nwWKyJeXb0mN670H/kyzq2jbNhR4pf7aUCY9vcG1oU22ou2tLOyjV4+uiRhCaOe50Cjn70BFtaH2Mz6dyt3/DZt93SrDS6H9GOrCUgawK14i7CyjnpMquJogZJlrz+47vmvXdhhPP4KOvdgYLN7iDY7p6F4/McJEDxnPY6i+ysUszO44OtNRKNON65/gRx9b9gkvIBJuc+5D4pVxLFgZU/0zW/SVeL4+k3tTIYui9bUUxO8VMGLsU0L85dMqemWGyJN0NGJUv4GhrGhW7XrRsCBQbPGolcqxBhJeivpjBocllTLXC/slhCYCv+FLF1Iri9BGzPYkm8zlxqil3LXiMP2gkOJcqCjpOFBEtOYs5jqnVdNuP1Mxt0Wjk8Oz5WuwIEK2rApiEI1iTm62Mdha+mmAm00hyYxbel/E6QlyAfGwbiX/GoF7BdTo9UNbV5JvYaVRP0kHdfUxCkmdB1iQGaU2xOwD1x9yXmZiRTVU1r0AtaGkPtRgda7wrEs3LcFoBPnS2E2w4MnDVhDua3HUyFn48eEm9MI2b7zwTaqSYR1rZXrbMnpzk5X0KvlYfw8AMJmgC5GKwZ5SYspwYoZ86a4LkpIn2GRWm8Nt+swmpnAEQFcmcNWO70F4qTnFTQHQ5m6JhihjuzvKRbAkfozDOQviU20bd65o5ceyL9NHquP5iighNlonJqhNyYmmGxMVfZm69WauhnTG213BEAix3+gnoTFjv8BFZvn2ENDi/pp/Ii6XaAb9lD2GR39oiAeuX/SGrXLVbbhadfr5egCfCikcDUzUS5VFObM8bBonGHNExKPTosd/ijL1nU+wlhhR5CxyQT4UtSx2RT/P3DD/jNbtHbojUBMDEQOX6+7vdR61Q9C8KDdg5I0KIuGXHorgsTWSNUM6R8IsGz3BBfNOl2aJjX+wqW9QRMsuDy4zGrs5jVjgTa8Aa+pAbkh/e9v/wGKwLiypJcAhRdvaZeJ2fXk+RrDsvH6PEdAjTkoN0XJ6q5qK4LBgI1w737ogF+OKHbqWFR5wfzOoIl/0fyqFLgS3tj4Qs7I0G8E1D73t9hSRCyZNhetT5iGV69XnP2b9JPpefgggEDJOlzSFldF/SE7gv6fJ7XWEyuYVY3UzAnyN7yhfl2EsVm22cKpqTK6Cn4ws5Y1QC7qQyhLovn5M/OWa+8A48V55Ccuw5r1m1AQupKLImJFCLmOQiBzoPQum0qfjlHz8QFPVEX9Vkj6GrTpebIKdYwWe/dabrdRzBjwCQWMzfbNpPnrG66zUeYXKvADUdT+pJ2hzdw6NpjWKy6D/NVP3FncNzV42dcvtZqRQdCVu7F3LBgLE1Nw6K4OGQWlCDurRUIiXgDzq6O6KfZD7ODw1BWthptB6Lx6/v0QdamQ7ugS+CkNh1qShcaBmtdOxgkkwmBqsDJZbE6U0ayI/52tZ03cJcePAYkSoTrW73nHJLfQ0JyKtLS3kLQ7JlYkZOHRbHxSM95G0npWXhj4SLM8PGE5ov9qJkoVFaXY/u2TTh5dD8+bXbi4F1t4wWmz/e/3qExLsG2xXTrTFplEdZ0q0+v2GSrQmDidbruatNm3gAbUVsfwoygzAhS9Oco8weE5B6FX4APEhPjEBcfjdil0chQ5iEsIhzxqRlIy8pHzNJE+AX6ov/A/ggOX4DS8hI07NyKQy1NyM9TCrvX2OPJ+fHoOq8tnKka3aoxJtS0QoQTYXkzUs5kvMWbGmCuEJhCKwIlfKDlwycwzfwJpgTIRTGD5bVn5Jp+EiWlhfDwdMUMLw9ELZyP5LQEpOVkI3h+CGJoV/JL19MxSsac4FkYNGQQguaGoKSsBHsa6nDsyEHWAHx9Z+LEBvpi16aNssRhlRrDpr4exSA56BYFmHgzW2SJNVFi3n7vhtQCsGDLI5gQoCwGa5L5owqc1RwzPkB8SjTS05Mw2cEejqSwebMQn7QUS5ctx+KYWETGxCN3bSVSlmcjLDwUQ4YORgA1UFpRjn17d6H1zCkUF72NWbOC4O/vi5vNdgiYPjBQo99LmlocbrMCRpu9eBPGPKamyNXFauwajz0L8OjJL7yBO/efwnNtJ4wJmoEbrxS9J/4JEctrkZmdjtTUZBgbGULhbYclhfMwaORYTHH0QG6OEhX0LrRAqUB4/nRELA3D4MFD4TVzFirWV2P/vp1498RhFOTnYc7c2VD4+GJryWxBZ3Q/8Zd87dRJrcabvSVQbxht8iJ4yjfJNbHOc6lWeKmWN8AGayJyy0MO/KzM6R0nctF8rMhYhvTlKRg+ZCTcZtvAf4UCzuYuaF5XjBsX2pCXkwlFqjPcVk2Hf/5cuKdPxowIdygLirC3sQ6nTzSjsHA1QueHYaafP1JSEoXhw4eN5Q1oeYxPNiIwWYYbZwg9uVevOp/bKNaqr+6SWhBH89XHcF9zH4YEbkRiPi2hmR7SeVhG5z16URSGvvISPJPHwys6FElr87G9rgY3v+vAxfY2gnaAX4E3QqrC4JlmB/MpJngzPYV2oAHnzhxDydo1eCMyAr7UQNzSJfBRuMfxBl4YqKllUOHWOZHgmDigBMncUBKbY65eYzvx6LF4nORx8243Tn/6BFWnf0VCOr2zxC3GyuwVWLo4FjZzLBGS5ouI4Cg4J/kgIu4NzC0OprNeiJQVKxCbmYCE7CUwcdSGvvFEpGYkobFhK95/7yQq6B0penE0/AMDqYFY5CvTTvIG2Bjhp6eUoQxrCbbWUzCsnUExiWoGUm5QQy7lE6V5l4Zw4eCtUxJ+7xEeFYm4hHisKSpCzmolfJYvgceiuYimo5A4LxK1GRn45OxpPPjsBmLiFyE9czWiFi2Gts4E6JsYIDsnDQf278TlttOoripDTMwS+vwIQvSShdhcU/RAwhd3Qa/U9b4MNrGGxJzHnr1yBq3K2ZyUu+6KQOGFWly5+xG+efQdb8DRfwb8ZwciNicV4W+nISImEtMmWcLfzxfLaEf+7fRpfHq+CWFZClgk6CFyRSg1kogx48dirLYOCt7OQ1NTA86ePICa6jLEx8fCz98P4RHzsamm9LGEL47hvnpKWmEOo1/jIajAucsSc/0NbJ7viCpmdYMNoliNuY2Pk2Dv54K5K+dhdXEeVhcWwJWOgW94JNynTcKhrevQ1n4AL3hrwDBOB75Z7pg8ZwpetNLE61bayMlXYl/jFrx/9ii2b92IpUvj+WdBaGgwKivX9OyAPLQzHK7LELJkeIMNHpLU55/N1WseUMT7wnnxNMzJDEfijs0IPbgH2qnpsIhbCOVbYWipLkTDqRZUnGmEb24oJi92wRDXoXh5+ksYaj8YOQU5OHG8Ge1X2rB713bagTgEBPjTJ7ovsrOW35Kwe4bmiIE6uiXOnfrrPSCLgai73np3QXQ3gcUMlrkoNz4nS1HsLQQXzUNE837Mp/fyOUd2w1aphF5mOnLWZOFt5QqUvH8M7Q++xaWf7qF4SzkGTB2GgU5D0d+yPzWwihpowsW2M2jatxvJbyZhFj0DM+kIhoXNPSRh9x5DJo+J0q12E5hEEHdJFFeTM1GuR95zjTjHclWd3LncB+E1WfDdsweK+o2IP9yIzR9eQNz5UwjbtAEFZ46gor0V157cx+ZjTbjz+Fd4JXlDY1J/jJg0GjnKlWjaX4+z7x6jo7QTbyYl8E9j1oCNjaX4NtrXGOGjl8tA+pJulasKUlWvcvsv1zGZVbkjoGoV3Op3IKy4EEX5OTj5zV+xreMTZJ09hsKPLuLQw6/R+EEbGsrL8ODuPdQer8cLTi/CxMMcpSVrcezoQZxrfZd2oAFpqcugUHjB08sTQ4YMfv6f27V8dJQcjKRD0LqSMzE4Hq+jmCDZXK95KWc+vyEHnpvXIzpqPooTYtF04wriTzQhsrwYyotnUfnpNSTUb0JhShJufXwdh2+eh978iZjm44hNGzfgyKH99F3oBJrpCBWuLkBISDCsrKz6Pj7PjpfNRwWNL57eSaAqSN11bpiwzoXgXQQWyzVduobVmVjOXsNiixpfwSc3C8HeTvBcHA7/7RtR8OE5bLhxAd4bK7Dl5odY/9XHcKNP54zEZOy7/C5GOY2Ah687qqpKsHfPdpw+eQRHWw6guroKCxdGPR4wYMA4CfGfD83hA3XG5Th0cMBKAq+UnHIOSfGESmeSOKeSat5ZWFDujaKMWEzPXw4jenATjjei5uP34VFN3zAbyrDyfDNe85kBZxcP1LTsxwiLl7EwMRKbajegcddWHGnejY3rK5CXlwcDA/3f9++mZ8cwxQSlDDaeoHQqXTjo+AoWiy7HEyrEOSbHDVNw++RwHCmzhHlyLMYlRsNvWzlS6MMppqUeS07VYXpZNrQDFNhTlIPD7edhPFUf2bnL6QFuRMvBRpyi56CmuhKenp59/4Pj9w62GyPDjOoYKINUl3aZE29Au8KJz1HM61v20a+BZwcIXWcH4tI+M2jHzIHXpgrkXjyNvMunUfzJe3DJXwZdF0fUpCTiBD0f1iG2KF2zms7/Phxu3oemxrqHttbWfhLG/3ywRgZPGhM1Ns3uOgPnwOXOKok1Z0xbP4XB9+jMANw+MlzI35uE6Hf2I46+Jgcf3I4xi0Lh4DUDKyODcXhdIRZnpWBdeRH276lH9qrl77wyaqS2dOs/frBm2MOuFaRX8Uq8RetrWZM7WBPjSqcLew+8jh8Oa3Z+tluzoylPs6U0vl/FG95/WqA16E9ar5oYOVuFzFX6FuUeHx8dcUtnsv3PcxTuP2cujf6rwt/3uL+fT66JsZGzdJs+hobGfwKjTEY06rEP9gAAAABJRU5ErkJggg==" InformativeScreenshot="7abbf72eea2e6263486650ea4fc90cca.jpg" Selector="&lt;html app='chrome.exe' htmlwindowname='9527ebay#{&amp;quot;parentId&amp;quot;:&amp;quot;ea235ea2-f53d-41e8-b9fd-45e529d6cb31&amp;quot;,&amp;quot;parentPage&amp;quot;:&amp;quot;4375194&amp;quot;,&amp;quot;screenId&amp;quot;:&amp;quot;a5b9374d-ebcd-449f-9711-82a7eaf7c471&amp;quot;}' url='https://www.bestbuy.com/' /&gt;" Title="Electronics, Cars, Fashion, Collectibles &amp; More | eBay" Url="https://www.bestbuy.com/" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+    <Assign DisplayName="Assign - bestbuy data table" sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="sd:DataTable">[out_bestbuyTable]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="sd:DataTable">[bestbuyDatatable]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,164" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Best Buy  Scrapping Successfully!&quot;]" />
+  </Sequence>
+</Activity>
