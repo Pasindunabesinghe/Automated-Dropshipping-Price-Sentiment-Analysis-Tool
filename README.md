@@ -50,13 +50,17 @@ The **Dropshipping Product Research Bot** is an automation tool designed to stre
 
 - **Main.xaml:** The main workflow that handles the overall automation process.
 - **DataScraping.xaml:** Handles data scraping from Amazon and BestBuy.
+  
 - **SentimentAnalysis.xaml:** Performs sentiment analysis on the scraped customer reviews.
+  
 - **ReportGeneration.xaml:** Generates the Word document and converts it to a PDF.
+  
 - **EmailAutomation.xaml:** Sends the generated PDF report via email.
 
 ## Contributing
 
 Contributions are welcome! Please submit a pull request or open an issue to discuss potential changes or improvements.
+
 
 ## License
 
